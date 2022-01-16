@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n){
+                dfs(1,n)
+            }
+
+            function dfs(start,limit){
+                
+                if(start===limit+1){
+                    return;
+                }else{
+                    console.log(start);
+                    dfs(start+1,limit);
+                }
+            }
+
+            solution(15);
+        </script>
+    </body>
+</html>

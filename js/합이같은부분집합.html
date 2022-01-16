@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+
+
+            function solution(arr){
+              console.log(arr)
+                let ch = Array.from({length:arr.length},()=>true);
+                let answer = "no";
+
+                function dfs(L,ch,arr){
+                if(L === arr.length){
+
+                    let temp = 0;
+                    let all = 32;
+
+                    ch.forEach((value,idx)=>{
+                        if(value){
+                            temp+=arr[idx];
+                            console.log("temp is "+temp)
+                        }
+                    })
+                    
+                    if(all===temp*2){
+                        console.log(temp)
+                    }
+
+                    return;
+                }else{
+                    ch[L]=true;
+                    dfs(L+1,ch,arr);
+                    ch[L]=false;
+                    dfs(L+1,ch,arr);
+                }
+            }
+
+                dfs(0,ch,arr);
+
+                return answer;
+            }
+
+            
+
+            let arr=[1, 3, 5, 6, 7, 10];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>

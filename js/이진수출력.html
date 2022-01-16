@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+
+            let result = "";
+
+            function solution(n){
+                let answer="";
+                DFS(n)
+                console.log(result)
+                return answer;
+            }
+
+            function DFS(n){
+                if(n<=0){
+                    console.log(n)
+                    console.log("끝")
+                    console.log(result)
+                    return;
+                }else{
+                    console.log("현재 n "+n)
+                    DFS(Math.floor(n/2))
+                    console.log(n+"의 나머지 "+n%2)
+                    result+=n%2+""
+                }
+              
+            }
+
+            console.log(solution(11));
+        </script>
+    </body>
+</html>
