@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+
+            
+            function solution(n, m){
+                let answer=[];
+                let tmp=Array.from({length:m}, ()=>0);
+               
+                function DFS(L, limit){
+                if(L === limit){
+                    console.log("도착");
+                    console.log(tmp)
+                }else{
+                    console.log("하이 "+L)
+
+                    for(let i=1; i<=n; i++){
+                        console.log(i+"번째")
+                        tmp[L] = i;
+                        DFS(L+1,limit)
+                    }
+
+                }
+                 }
+
+
+                DFS(0,m);
+
+
+                return answer;
+            }
+
+          
+            console.log(solution(3, 2));
+        </script>
+    </body>
+</html>

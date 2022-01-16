@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(m, arr){
+                let answer = "not implements";
+                let min = Number.MAX_SAFE_INTEGER;
+
+                function dfs(L,sum){
+                    console.log(" sum is "+sum)
+                    if(sum > m){
+                        return;
+                    }
+
+                    if(L>=min) return;
+ 
+                    if(sum === m){
+                        console.log("코인 사용 횟수 :"+L);    
+                        min = Math.min(L,min)              
+                        console.log("min is "+min) 
+                        return;
+                    }else{
+                        for(let i=0; i<=arr.length-1; i++){
+                            dfs(L+1,sum+arr[i]);
+                        }
+                    }
+
+                    
+                }
+
+                dfs(0,0)
+
+                console.log(min)
+                return answer;
+            }
+
+            let arr=[1, 2, 5];
+            console.log(solution(15, arr));
+        </script>
+    </body>
+</html>
