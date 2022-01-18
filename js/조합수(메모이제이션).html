@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+
+            function solution(n, r){         
+                
+                    
+                    function dfs(num,row){
+                        if(num===row || row===0) return 1;
+                        else return dfs(num-1,row-1)+dfs(num-1,row);
+                    }
+
+
+                let answer = dfs(n,r);
+                console.log(ch[0][0])
+
+                return answer;
+            }
+
+           
+
+            console.log(solution(10, 9));
+        </script>
+    </body>
+</html>
