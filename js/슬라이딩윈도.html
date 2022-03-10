@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(k, arr){
+              
+                let answer = 0;
+                let max = 0;
+                let temp = 0;
+                for(let i=0; i<k; i++){
+                    temp+=arr[i];
+                }
+
+                max = temp;
+
+                for(let i=k; i<arr.length; i++){
+                    temp = -arr[i-k]+arr[i]+temp;
+                    max = Math.max(temp,max);
+                }
+
+                console.log(max)
+                
+                return answer;
+            }
+            
+            let a=[12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
+            console.log(solution(3, a));
+        </script>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    
+    function solution(s, t){
+        let answer = 0;
+        let k = t.length;
+        let map = new Map();
+        let tMap = new Map();
+        let sum = ""
+
+        for(let a of t){
+            if(tMap.has(a)) tMap.set(a,tMap.get(a)+1);
+            else tMap.set(a,1);
+            }
+
+            console.log(tMap)
+
+        for(let i=0; i<k; i++){
+            sum+=s[i];
+        }
+
+        for(let i = k; i<s.length; i++){
+           
+            console.log(sum)
+           
+            for(let a of sum){
+                if(map.has(a)) map.set(a,map.get(a)+1);
+                else map.set(a,1);
+            }
+
+
+
+            let mapKeys = map.keys();
+            let temp = true;
+            for(let b of mapKeys){
+                if(!tMap.has(b)) {
+                    temp = false;
+                    break;
+                }
+                else{
+                    if(tMap.get(b)!==map.get(b)){
+                        temp = false;
+                        break;
+                    }
+                }
+            }
+
+            if(temp) answer++;
+
+            temp  = true;
+            map.clear();
+
+            sum = sum.substring(1,sum.length);
+            sum+=s[i];
+        }
+
+        
+
+        
+        
+        return answer;
+    }
+    
+    let a="bacaAacba";
+    let b="abc";
+    console.log(solution(a, b));
+</script>

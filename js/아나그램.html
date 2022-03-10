@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str1, str2){
+                let answer="YES"; 
+                let mapFor1 = new Map();
+                let mapFor2 = new Map();
+
+                for(let a of str1){
+                    if(mapFor1.has(a)){
+                        mapFor1.set(a,mapFor1.get(a)+1);
+                    }else{
+                        mapFor1.set(a,1);
+                    }
+                }
+
+                
+                for(let a of str2){
+                    if(mapFor1.has(a)&&mapFor1.get(a)===0){
+                        return "no";
+                    }else if(!mapFor1.has(a)){
+                        return "no";
+                    }
+                }
+
+                return "yes"
+
+                console.log(mapFor1)
+                console.log(mapFor2)
+
+
+
+
+                
+                return answer;
+            }
+            
+            let a="AbaAeCe";
+            let b="baeeACA";
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
