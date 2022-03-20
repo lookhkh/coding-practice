@@ -6,20 +6,27 @@
     <body>
         <script>
             function solution(n){
-                dfs(1,n)
-            }
 
-            function dfs(start,limit){
-                
-                if(start===limit+1){
-                    return;
-                }else{
-                    console.log(start);
-                    dfs(start+1,limit);
-                }
-            }
+                function dfs(depth,L){
+                    
+                    if(depth >= L) return;
+                    else {
+                        console.log(depth)
 
-            solution(15);
+                        dfs(2*depth,L);
+                        dfs(2*depth+1, L);
+
+
+
+                    } 
+                             }
+                             dfs(1,n)
+
+
+              
+
+            }
+            solution(20);
         </script>
     </body>
 </html>
